@@ -1,0 +1,46 @@
+﻿# MewCode 示例配置
+# 复制到以下任一路径后修改：
+#   ~/.mewcode/config.yaml
+#   .mewcode/config.yaml
+#   .mewcode/config.local.yaml
+#
+# 不要把填好真实密钥的文件提交到 Git。
+
+providers:
+  # OpenAI 官方
+  - name: openai
+    protocol: openai
+    base_url: https://api.openai.com/v1
+    model: gpt-4o
+    api_key: ""   # 也可留空，使用环境变量 OPENAI_API_KEY
+
+  # Anthropic 官方（按需启用其中一个 provider 即可）
+  # - name: anthropic
+  #   protocol: anthropic
+  #   base_url: https://api.anthropic.com
+  #   model: claude-sonnet-4-20250514
+  #   api_key: ""   # 或环境变量 ANTHROPIC_API_KEY
+  #   thinking: false
+
+  # OpenAI 兼容接口（DeepSeek / 智谱 / 通义 等）
+  # - name: openai-compat
+  #   protocol: openai-compat
+  #   base_url: https://api.deepseek.com/v1
+  #   model: deepseek-chat
+  #   api_key: ""
+  #   thinking: false
+  #   # context_window: 128000
+  #   # max_output_tokens: 8192
+
+# 权限模式: default | acceptEdits | plan | bypassPermissions
+permission_mode: default
+
+# 可选：MCP 服务器
+# mcp_servers:
+#   - name: context7
+#     command: npx
+#     args: ["-y", "@upstash/context7-mcp"]
+#   - name: my-http-mcp
+#     url: https://example.com/mcp
+#     headers:
+#       Authorization: "Bearer ${MY_TOKEN}"
